@@ -17,15 +17,18 @@ class Client extends Model
         'user_id'
     ];
 
-    public function address(): HasOne {
-        return $this->hasOne(Address::class);
+    public function address(): BelongsTo
+    {
+        return $this->belongsTo(Address::class);
     }
 
-    public function user(): BelongsTo {
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function sales(): HasMany {
+    public function sales(): HasMany
+    {
         return $this->hasMany(Sale::class);
     }
 }
